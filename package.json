@@ -5,8 +5,6 @@
   "main": "index.html",
   "scripts": {
     "test": "playwright test --headed",
-    "test:headed": "playwright test --headed",
-    "test:demo": "playwright test --headed",
     "test:basic": "playwright test basic-functionality.spec.js --headed",
     "test:management": "playwright test task-management.spec.js --headed",
     "test:validation": "playwright test validation.spec.js --headed",
