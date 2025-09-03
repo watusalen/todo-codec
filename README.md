@@ -2,6 +2,8 @@
 
 Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright no minicurso CODEC 2025.
 
+🌐 **Demo:** https://todo-codec.vercel.app
+
 ## Características
 
 - Aplicação Todo completa com CRUD de tarefas
@@ -10,6 +12,7 @@ Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright n
 - Interface responsiva com Tailwind CSS
 - Testes E2E organizados com Page Object Model
 - Arquitetura modular em JavaScript ES6
+- Deploy automatizado no Vercel
 
 ## Estrutura do Projeto
 
@@ -34,17 +37,22 @@ Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright n
     └── advanced-features.spec.js
 ```
 
-## Instalação
+## Instalação e Execução
 
+### 1. Instalar dependências
 ```bash
 npm install
 npx playwright install
 ```
 
-## Executando a Aplicação
+### 2. Executar aplicação
 
-A aplicação precisa ser servida via HTTP devido aos módulos ES6:
+**Opção A: Demo online**
+```
+https://todo-codec.vercel.app
+```
 
+**Opção B: Servidor local**
 ```bash
 # Python
 python -m http.server 8080
@@ -57,15 +65,14 @@ Acesse: http://localhost:8080
 
 ## Executando os Testes
 
+Os testes estão configurados para usar a URL do Vercel (https://todo-codec.vercel.app).
+
 ```bash
 # Todos os testes
 npm test
 
-# Com interface gráfica
+# Com interface visual
 npm run test:headed
-
-# Modo demonstração (com pausas)
-npm run test:demo
 
 # Interface do Playwright
 npm run test:ui
@@ -76,6 +83,8 @@ npm run test:management  # Gerenciamento de tarefas
 npm run test:validation  # Validações
 npm run test:advanced    # Funcionalidades avançadas
 ```
+
+> **Nota:** Para usar localhost, edite `tests/models/BasePage.js` e altere a URL.
 
 ## Page Object Model
 
@@ -106,6 +115,22 @@ O projeto utiliza uma arquitetura modular para os testes:
 - Persistência após reload
 - Múltiplas tarefas
 - Caracteres especiais
+
+## Deploy
+
+O projeto está configurado para deploy automático no Vercel:
+
+1. **Vercel CLI:**
+   ```bash
+   npm i -g vercel
+   vercel
+   ```
+
+2. **Vercel Dashboard:**
+   - Conecte o repositório GitHub
+   - Deploy automático a cada push
+
+**URL de produção:** https://todo-codec.vercel.app
 
 ## Desenvolvimento
 
