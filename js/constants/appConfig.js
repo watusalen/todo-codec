@@ -61,6 +61,7 @@ export const APP_CONFIG = {
         ERRORS: {
             TASK_TOO_SHORT: 'A tarefa deve ter pelo menos 1 caractere',
             TASK_TOO_LONG: 'A tarefa não pode ter mais de 500 caracteres',
+            TASK_DUPLICATE: 'Já existe uma tarefa com este texto',
             TASK_NOT_FOUND: 'Tarefa não encontrada',
             SAVE_ERROR: 'Erro ao salvar a tarefa',
             LOAD_ERROR: 'Erro ao carregar as tarefas'

@@ -1,6 +1,6 @@
 import { Task } from '../models/Task.js';
 import { TaskRepository } from '../repositories/TaskRepository.js';
-import { validateTaskText, validateTaskId, sanitizeText } from '../utils/validation.js';
+import { validateTaskText, validateTaskDuplicate, validateTaskId, sanitizeText } from '../utils/validation.js';
 import { APP_CONFIG } from '../constants/appConfig.js';
 
 /**
@@ -31,6 +31,12 @@ export class TodoService {
         const validation = validateTaskText(text);
         if (!validation.isValid) {
             throw new Error(validation.error);
+        }
+
+        // Verifica se a tarefa já existe
+        const duplicateValidation = validateTaskDuplicate(text, this.tasks);
+        if (!duplicateValidation.isValid) {
+            throw new Error(duplicateValidation.error);
         }
 
         const sanitizedText = sanitizeText(text);

@@ -1,96 +1,122 @@
-# CODEC 2025 - Explorando Testes End-to-End com Playwright: Um Convite à Automação de Qualidade
+# Todo App - CODEC 2025
 
-<div align="center">
+Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright no minicurso CODEC 2025.
 
-![Todo App Preview](https://img.shields.io/badge/Status-Demo%20Ready-brightgreen)
-![Playwright](https://img.shields.io/badge/Playwright-Ready-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
-![CSS](https://img.shields.io/badge/CSS-Tailwind-06B6D4)
+## Características
 
-</div>
+- Aplicação Todo completa com CRUD de tarefas
+- Validação de duplicatas e entrada de dados
+- Persistência no localStorage
+- Interface responsiva com Tailwind CSS
+- Testes E2E organizados com Page Object Model
+- Arquitetura modular em JavaScript ES6
 
-## **Sobre o Projeto**
-
-Este é um Todo Application desenvolvido especificamente para demonstrar testes End-to-End com Playwright durante o CODEC 2025.
-
-### **Contexto Educacional**
-- **Evento**: CODEC 2025
-- **Minicurso**: "Explorando Testes End-to-End com Playwright: Um Convite à Automação de Qualidade"
-- **Objetivo**: Ensinar automação de testes através de um projeto prático
-
-## **Funcionalidades**
-
-- ➕ **CRUD Completo**: Adicionar, visualizar,  editar e excluir tarefas
-- 🔄 **Filtros**: Visualizar todas, pendentes ou concluídas
-- 💾 **Persistência Local**: Dados salvos no localStorage
-- 🎨 **Interface**: Design com Tailwind CSS
-- ⚡ **Estados de Loading**: Feedback visual durante operações
-- 🔔 **Sistema de Notificações**: Alerts para ações
-- ❓ **Confirmações**: Diálogos modais para ações críticas
-- ⌨️ **Atalhos de Teclado**: Navegação eficiente
-
-## **Arquitetura**
-
-O projeto segue uma arquitetura modular otimizada para testes:
+## Estrutura do Projeto
 
 ```
-todo/
-├── index.html                    # Interface principal
-└── js/
-    ├── TodoApp.js               # Aplicação principal
-    ├── models/
-    │   └── Task.js              # Modelo de dados
-    ├── repositories/
-    │   └── TaskRepository.js    # Persistência
-    ├── services/
-    │   └── TodoService.js       # Lógica de negócio
-    ├── ui/
-    │   └── TodoUI.js           # Interface do usuário
-    ├── utils/
-    │   ├── validation.js        # Validações
-    │   ├── notifications.js     # Sistema de alertas
-    │   └── confirmationDialog.js # Confirmações
-    └── constants/
-        └── appConfig.js         # Configurações
+├── index.html              # Página principal
+├── js/                     # Código fonte
+│   ├── TodoApp.js          # Aplicação principal
+│   ├── constants/          # Configurações
+│   ├── models/             # Modelos de dados
+│   ├── repositories/       # Persistência
+│   ├── services/           # Regras de negócio
+│   ├── ui/                 # Interface
+│   └── utils/              # Utilitários
+├── src/                    # Estilos
+│   ├── input.css           # Tailwind source
+│   └── output.css          # CSS compilado
+└── tests/                  # Testes E2E
+    ├── models/             # Page Object Model modular
+    ├── basic-functionality.spec.js
+    ├── task-management.spec.js
+    ├── validation.spec.js
+    └── advanced-features.spec.js
 ```
 
-## **Pronto para Playwright**
+## Instalação
 
-### **Test IDs Padronizados**
-Todos os elementos possuem `data-testid` consistentes:
-- `task-input` - Campo de entrada
-- `add-button` - Botão adicionar
-- `task-list` - Lista de tarefas
-- `filter-all` / `filter-pending` / `filter-completed` - Filtros
+```bash
+npm install
+npx playwright install
+```
 
-### **Estados Testáveis**
-- ✅ Loading states
-- ✅ Error states  
-- ✅ Empty states
-- ✅ Confirmation dialogs
-- ✅ Success notifications
+## Executando a Aplicação
 
-### **Operações Assíncronas**
-Todas as operações são `async/await` para testes confiáveis.
+A aplicação precisa ser servida via HTTP devido aos módulos ES6:
 
-## **Como Executar**
+```bash
+# Python
+python -m http.server 8080
 
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/watusalen/todo-codec.git
-   cd todo-codec
-   ```
+# Node.js
+npx http-server -p 8080
+```
 
-2. **Abra no navegador**:
-   ```bash
-   # Simplesmente abra o arquivo index.html em qualquer navegador
-   open index.html
-   ```
+Acesse: http://localhost:8080
 
-3. **Ou use um servidor local**:
-   ```bash
-   # Com Node.js
-   npx serve .
-   
-   # Acesse: http://localhost:8000
-   ```
+## Executando os Testes
+
+```bash
+# Todos os testes
+npm test
+
+# Com interface gráfica
+npm run test:headed
+
+# Modo demonstração (com pausas)
+npm run test:demo
+
+# Interface do Playwright
+npm run test:ui
+
+# Testes específicos
+npm run test:basic       # Funcionalidades básicas
+npm run test:management  # Gerenciamento de tarefas
+npm run test:validation  # Validações
+npm run test:advanced    # Funcionalidades avançadas
+```
+
+## Page Object Model
+
+O projeto utiliza uma arquitetura modular para os testes:
+
+- **BasePage.js** - Funcionalidades base de navegação
+- **TodoLocators.js** - Localizadores centralizados
+- **TodoActions.js** - Ações específicas da aplicação
+- **TodoAssertions.js** - Verificações e assertions
+- **TodoPage.js** - POM principal que herda dos módulos
+
+## Funcionalidades Testadas
+
+### Básicas
+- Carregamento da página
+- Adicionar tarefa
+- Marcar como concluída
+
+### Gerenciamento
+- Excluir com confirmação
+- Cancelar exclusão
+
+### Validações
+- Impedir tarefa vazia
+- Impedir duplicatas (case-insensitive)
+
+### Avançadas
+- Persistência após reload
+- Múltiplas tarefas
+- Caracteres especiais
+
+## Desenvolvimento
+
+```bash
+# Compilar CSS (modo watch)
+npm run build-css
+
+# Compilar CSS (produção)
+npm run build-css-prod
+```
+
+## Autor
+
+Matusalen Alves - CODEC 2025

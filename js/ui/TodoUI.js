@@ -9,7 +9,8 @@ import { ConfirmationDialog } from '../utils/confirmationDialog.js';
  */
 export class TodoUI {
     /**
-     * Cria uma nova instância da interface
+     *         return `
+            <div class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg mb-3 hover:bg-gray-50 transition-all duration-200 ${APP_CONFIG.UI.ANIMATIONS.SLIDE_IN} ${taskStateClass}" data-task-id="${task.id}" data-testid="task-item-${task.id}">`ia uma nova instância da interface
      * @param {TodoService} todoService - Serviço de tarefas
      */
     constructor(todoService) {

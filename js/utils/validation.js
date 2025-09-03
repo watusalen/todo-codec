@@ -48,6 +48,40 @@ export function validateTaskText(text) {
 }
 
 /**
+ * Valida se uma tarefa é duplicada
+ * @param {string} text - Texto da tarefa para validar
+ * @param {Array} existingTasks - Array de tarefas existentes
+ * @returns {ValidationResult} Resultado da validação
+ */
+export function validateTaskDuplicate(text, existingTasks) {
+    if (!text || typeof text !== 'string') {
+        return {
+            isValid: false,
+            error: APP_CONFIG.MESSAGES.ERRORS.TASK_TOO_SHORT
+        };
+    }
+
+    const trimmedText = text.trim().toLowerCase();
+    
+    // Verifica se já existe uma tarefa com o mesmo texto (case-insensitive)
+    const isDuplicate = existingTasks.some(task => 
+        task.text.trim().toLowerCase() === trimmedText
+    );
+
+    if (isDuplicate) {
+        return {
+            isValid: false,
+            error: APP_CONFIG.MESSAGES.ERRORS.TASK_DUPLICATE
+        };
+    }
+
+    return {
+        isValid: true,
+        error: null
+    };
+}
+
+/**
  * Sanitiza texto para prevenir XSS
  * @param {string} text - Texto para sanitizar
  * @returns {string} Texto sanitizado

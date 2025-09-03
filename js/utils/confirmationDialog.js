@@ -60,7 +60,7 @@ export class ConfirmationDialog {
      */
     createDialog(message, config, resolve) {
         const overlay = document.createElement('div');
-        overlay.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in';
+        overlay.className = 'modal-overlay flex items-center justify-center animate-fade-in';
         overlay.setAttribute('data-testid', APP_CONFIG.TEST_IDS.CONFIRM_DIALOG);
 
         const dialog = document.createElement('div');
