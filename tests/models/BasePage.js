@@ -10,10 +10,10 @@ class BasePage {
      * Navega para a página do Todo App
      */
     async goto() {
-        await this.page.goto('http://localhost:8080');
+        await this.page.goto('https://todo-codec.vercel.app');
         await this.page.waitForLoadState('domcontentloaded');
         await this.page.waitForTimeout(1000);
-    }
+    } 
 
     /**
      * Limpa o localStorage
