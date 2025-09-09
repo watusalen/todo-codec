@@ -37,10 +37,10 @@ class TodoActions extends BasePage {
      */
     async deleteTask(taskIndex, confirmDelete = true) {
         await this.locators.deleteButtons.nth(taskIndex).click();
-        
+
         await this.locators.confirmDialog.waitFor({ state: 'visible' });
         await this.page.waitForTimeout(1000);
-        
+
         if (confirmDelete) {
             await this.locators.confirmYesButton.click();
             await this.page.waitForTimeout(1000);
@@ -48,7 +48,7 @@ class TodoActions extends BasePage {
             await this.locators.confirmNoButton.click();
             await this.page.waitForTimeout(1000);
         }
-        
+
         await this.locators.confirmDialog.waitFor({ state: 'hidden' });
     }
 

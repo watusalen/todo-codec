@@ -25,8 +25,8 @@ class TodoPage extends TodoAssertions {
         this.editInputs = this.locators.editInputs;
         this.saveButtons = this.locators.saveButtons;
         this.cancelButtons = this.locators.cancelButtons;
-        this.errorMessage = this.locators.errorNotification; // Compatibilidade
-        this.successMessage = this.locators.successNotification; // Compatibilidade
+        this.errorMessage = this.locators.errorNotification;
+        this.successMessage = this.locators.successNotification;
         this.notificationContainer = this.locators.notificationContainer;
         this.errorNotification = this.locators.errorNotification;
         this.confirmDialog = this.locators.confirmDialog;

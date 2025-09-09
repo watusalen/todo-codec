@@ -14,7 +14,7 @@ test.describe('Todo App - Validações', () => {
   test('deve impedir adicionar tarefa vazia', async () => {
     // Tenta adicionar tarefa vazia
     await todoPage.addTask('');
-    
+
     // Verifica que nenhuma tarefa foi adicionada
     expect(await todoPage.getTaskCount()).toBe(0);
     expect(await todoPage.isEmptyStateVisible()).toBe(true);
@@ -22,17 +22,17 @@ test.describe('Todo App - Validações', () => {
 
   test('deve impedir tarefas duplicadas', async () => {
     const taskText = 'Tarefa duplicada';
-    
+
     // Adiciona a primeira tarefa
     await todoPage.addTask(taskText);
     expect(await todoPage.getTaskCount()).toBe(1);
-    
+
     // Tenta adicionar a mesma tarefa novamente (deve falhar)
     await todoPage.addTask(taskText);
-    
+
     // Verifica se ainda há apenas uma tarefa (duplicata foi rejeitada)
     expect(await todoPage.getTaskCount()).toBe(1);
-    
+
     // Verifica se uma notificação de erro apareceu
     await expect(todoPage.errorNotification).toBeVisible();
   });
@@ -42,7 +42,7 @@ test.describe('Todo App - Validações', () => {
     await todoPage.addTask('Comprar pão');
     await todoPage.addTask('Comprar pães');
     await todoPage.addTask('COMPRAR PÃO'); // Deve ser rejeitada (case-insensitive)
-    
+
     // Verifica que apenas duas tarefas foram adicionadas
     expect(await todoPage.getTaskCount()).toBe(2);
   });

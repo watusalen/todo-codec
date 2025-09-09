@@ -62,9 +62,9 @@ export function validateTaskDuplicate(text, existingTasks) {
     }
 
     const trimmedText = text.trim().toLowerCase();
-    
+
     // Verifica se já existe uma tarefa com o mesmo texto (case-insensitive)
-    const isDuplicate = existingTasks.some(task => 
+    const isDuplicate = existingTasks.some(task =>
         task.text.trim().toLowerCase() === trimmedText
     );
 

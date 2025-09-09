@@ -9,6 +9,7 @@
     "test:management": "playwright test task-management.spec.js --headed",
     "test:validation": "playwright test validation.spec.js --headed",
     "test:advanced": "playwright test advanced-features.spec.js --headed",
+    "test:failure": "playwright test failure-demo.spec.js --headed",
     "test:ui": "playwright test --ui",
     "build-css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
     "build-css-prod": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify"

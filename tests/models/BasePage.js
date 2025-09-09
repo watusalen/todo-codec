@@ -13,7 +13,7 @@ class BasePage {
         await this.page.goto('https://todo-codec.vercel.app');
         await this.page.waitForLoadState('domcontentloaded');
         await this.page.waitForTimeout(1000);
-    } 
+    }
 
     /**
      * Limpa o localStorage

@@ -16,7 +16,7 @@ test.describe('Todo App - Funcionalidades Básicas', () => {
     await expect(todoPage.taskInput).toBeVisible();
     await expect(todoPage.addButton).toBeVisible();
     await expect(todoPage.taskList).toBeVisible();
-    
+
     // Verifica se o estado vazio está sendo exibido
     expect(await todoPage.isEmptyStateVisible()).toBe(true);
     expect(await todoPage.getTaskCount()).toBe(0);
@@ -24,9 +24,9 @@ test.describe('Todo App - Funcionalidades Básicas', () => {
 
   test('deve adicionar uma nova tarefa', async () => {
     const taskText = 'Minha primeira tarefa';
-    
+
     await todoPage.addTask(taskText);
-    
+
     // Verifica se a tarefa foi adicionada
     expect(await todoPage.getTaskCount()).toBe(1);
     expect(await todoPage.getTaskText(0)).toBe(taskText);
@@ -35,15 +35,15 @@ test.describe('Todo App - Funcionalidades Básicas', () => {
 
   test('deve marcar tarefa como concluída', async () => {
     const taskText = 'Tarefa para concluir';
-    
+
     // Adiciona uma tarefa
     await todoPage.addTask(taskText);
     expect(await todoPage.isTaskCompleted(0)).toBe(false);
-    
+
     // Marca como concluída
     await todoPage.toggleTaskComplete(0);
     expect(await todoPage.isTaskCompleted(0)).toBe(true);
-    
+
     // Desmarca como concluída
     await todoPage.toggleTaskComplete(0);
     expect(await todoPage.isTaskCompleted(0)).toBe(false);

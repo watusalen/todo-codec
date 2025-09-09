@@ -96,7 +96,7 @@ class TodoAssertions extends TodoActions {
     async getAllTasks() {
         const count = await this.getTaskCount();
         const tasks = [];
-        
+
         for (let i = 0; i < count; i++) {
             tasks.push({
                 text: await this.getTaskText(i),
@@ -104,7 +104,7 @@ class TodoAssertions extends TodoActions {
                 index: i
             });
         }
-        
+
         return tasks;
     }
 }
