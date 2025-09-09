@@ -34,7 +34,7 @@ test.describe('Todo App - Validações', () => {
     expect(await todoPage.getTaskCount()).toBe(1);
 
     // Verifica se uma notificação de erro apareceu
-    await expect(todoPage.errorNotification).toBeVisible();
+    await expect(todoPage.locators.errorNotification).toBeVisible();
   });
 
   test('deve permitir tarefas com textos similares mas não idênticos', async () => {

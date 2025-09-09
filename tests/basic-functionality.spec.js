@@ -13,9 +13,9 @@ test.describe('Todo App - Funcionalidades Básicas', () => {
 
   test('deve carregar a página corretamente', async () => {
     // Verifica se os elementos principais estão visíveis
-    await expect(todoPage.taskInput).toBeVisible();
-    await expect(todoPage.addButton).toBeVisible();
-    await expect(todoPage.taskList).toBeVisible();
+    await expect(todoPage.locators.taskInput).toBeVisible();
+    await expect(todoPage.locators.addButton).toBeVisible();
+    await expect(todoPage.locators.taskList).toBeVisible();
 
     // Verifica se o estado vazio está sendo exibido
     expect(await todoPage.isEmptyStateVisible()).toBe(true);
