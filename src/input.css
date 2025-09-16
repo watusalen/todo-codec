@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+
+@theme {
+  --breakpoint-xs: 375px;
+}
+
 /* Animações customizadas */
 @keyframes fadeIn {
   0% {
