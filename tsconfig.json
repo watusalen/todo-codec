@@ -3,17 +3,23 @@
     "target": "ES2020",
     "module": "commonjs",
     "lib": ["ES2020", "DOM"],
-    "strict": false,
+    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declaration": false,
+    "outDir": "./dist",
+    "rootDir": "./"
   },
   "include": [
-    "tests-typescript/**/*"
+    "tests/**/*.ts",
+    "playwright.config.ts"
   ],
   "exclude": [
     "node_modules",
-    "tests",
+    "dist",
     "playwright-report",
     "test-results"
   ]

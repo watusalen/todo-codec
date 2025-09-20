@@ -1,8 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
-// Configuração simples do Playwright para TypeScript
+// Configuração do Playwright para TypeScript
 export default defineConfig({
-  testDir: './tests-typescript',
+  testDir: './tests',
   fullyParallel: true,
   retries: 0,
   workers: 1,

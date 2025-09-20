@@ -21,7 +21,7 @@ Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright n
 ├── package.json                  # Dependências e scripts
 ├── tailwind.config.js            # Configuração do Tailwind CSS
 ├── tsconfig.json                 # Configuração TypeScript
-├── playwright-ts.config.ts       # Configuração Playwright (TS)
+├── playwright.config.ts          # Configuração Playwright
 ├── README.md                     # Documentação
 ├── js/                           # Código fonte da aplicação
 │   ├── TodoApp.js                # Aplicação principal
@@ -42,7 +42,7 @@ Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright n
 ├── src/                          # Estilos CSS
 │   ├── input.css                 # Tailwind source
 │   └── output.css                # CSS compilado
-├── tests-typescript/             # Testes E2E (TypeScript)
+├── tests/                        # Testes E2E (TypeScript)
 │   ├── models/                   # Page Object Model tipado
 │   │   ├── BasePage.ts
 │   │   ├── TodoLocators.ts
