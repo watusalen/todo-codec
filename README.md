@@ -100,9 +100,6 @@ Os testes estão configurados para usar a URL do Vercel (https://todo-codec.verc
 # Todos os testes
 npm test
 
-# Com interface visual
-npm run test:headed
-
 # Interface do Playwright
 npm run test:ui
 
@@ -111,19 +108,20 @@ npm run test:basic       # Funcionalidades básicas
 npm run test:management  # Gerenciamento de tarefas
 npm run test:validation  # Validações
 npm run test:advanced    # Funcionalidades avançadas
+npm run test:failure     # Teste de falhas
 ```
 
-> **Nota:** Para usar localhost, edite `tests/models/BasePage.js` e altere a URL.
+> **Nota:** Para usar localhost, edite `tests/models/BasePage.ts` e altere a URL.
 
 ## Page Object Model
 
 O projeto utiliza uma arquitetura modular para os testes:
 
-- **BasePage.js** - Funcionalidades base de navegação
-- **TodoLocators.js** - Localizadores centralizados
-- **TodoActions.js** - Ações específicas da aplicação
-- **TodoAssertions.js** - Verificações e assertions
-- **TodoPage.js** - POM principal que herda dos módulos
+- **BasePage.ts** - Funcionalidades base de navegação
+- **TodoLocators.ts** - Localizadores centralizados
+- **TodoActions.ts** - Ações específicas da aplicação
+- **TodoAssertions.ts** - Verificações e assertions
+- **TodoPage.ts** - POM principal que herda dos módulos
 
 ## Funcionalidades Testadas
 
