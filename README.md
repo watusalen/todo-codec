@@ -17,24 +17,45 @@ Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright n
 ## Estrutura do Projeto
 
 ```
-├── index.html              # Página principal
-├── js/                     # Código fonte
-│   ├── TodoApp.js          # Aplicação principal
-│   ├── constants/          # Configurações
-│   ├── models/             # Modelos de dados
-│   ├── repositories/       # Persistência
-│   ├── services/           # Regras de negócio
-│   ├── ui/                 # Interface
-│   └── utils/              # Utilitários
-├── src/                    # Estilos
-│   ├── input.css           # Tailwind source
-│   └── output.css          # CSS compilado
-└── tests/                  # Testes E2E
-    ├── models/             # Page Object Model modular
-    ├── basic-functionality.spec.js
-    ├── task-management.spec.js
-    ├── validation.spec.js
-    └── advanced-features.spec.js
+├── index.html                    # Página principal
+├── package.json                  # Dependências e scripts
+├── tailwind.config.js            # Configuração do Tailwind CSS
+├── tsconfig.json                 # Configuração TypeScript
+├── playwright-ts.config.ts       # Configuração Playwright (TS)
+├── README.md                     # Documentação
+├── js/                           # Código fonte da aplicação
+│   ├── TodoApp.js                # Aplicação principal
+│   ├── constants/
+│   │   └── appConfig.js          # Configurações da app
+│   ├── models/
+│   │   └── Task.js               # Modelo de tarefa
+│   ├── repositories/
+│   │   └── TaskRepository.js     # Persistência no localStorage
+│   ├── services/
+│   │   └── TodoService.js        # Regras de negócio
+│   ├── ui/
+│   │   └── TodoUI.js             # Interface do usuário
+│   └── utils/                    # Utilitários
+│       ├── confirmationDialog.js
+│       ├── notifications.js
+│       └── validation.js
+├── src/                          # Estilos CSS
+│   ├── input.css                 # Tailwind source
+│   └── output.css                # CSS compilado
+├── tests-typescript/             # Testes E2E (TypeScript)
+│   ├── models/                   # Page Object Model tipado
+│   │   ├── BasePage.ts
+│   │   ├── TodoLocators.ts
+│   │   ├── TodoActions.ts
+│   │   ├── TodoAssertions.ts
+│   │   └── TodoPage.ts
+│   ├── basic-functionality.spec.ts
+│   ├── task-management.spec.ts
+│   ├── validation.spec.ts
+│   ├── advanced-features.spec.ts
+│   └── failure-demo.spec.ts      # Teste de falhas
+└── playwright-report/            # Relatórios dos testes
+    └── index.html
 ```
 
 ## Instalação e Execução
@@ -42,10 +63,18 @@ Aplicação Todo desenvolvida para demonstrar testes End-to-End com Playwright n
 ### 1. Instalar dependências
 ```bash
 npm install
-npx playwright install
 ```
 
-### 2. Executar aplicação
+### 2. Configurar Playwright
+1. Instale a **extensão Playwright** no VS Code
+2. Abra a paleta de comandos (`Ctrl+Shift+P` ou `Cmd+Shift+P`)
+3. Digite e execute: `>Install Playwright`
+4. Na configuração:
+   - **Navegadores**: Selecione apenas **Chromium**
+   - **GitHub Actions**: **Desmarque** esta opção
+   - **Sobrescrever config**: **NÃO** reescreva os arquivos de configuração existentes
+
+### 3. Executar aplicação
 
 **Opção A: Demo online**
 ```
