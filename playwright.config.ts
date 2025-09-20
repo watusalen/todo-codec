@@ -6,12 +6,22 @@ export default defineConfig({
   fullyParallel: true,
   retries: 0,
   workers: 1,
-  reporter: 'html',
+  reporter: [
+    ['html', { open: 'never' }],
+    ['list']
+  ],
   
   use: {
     baseURL: 'https://todo-codec.vercel.app',
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure'
+    
+    // Captura de vídeo sempre (vai para test-results automaticamente)
+    video: 'on',
+    
+    // Screenshots sempre
+    screenshot: 'on',
+    
+    // Trace completo sempre
+    trace: 'on',
   },
 
   projects: [

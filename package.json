@@ -11,6 +11,7 @@
     "test:advanced": "playwright test advanced-features.spec.ts --headed",
     "test:failure": "playwright test failure-demo.spec.ts --headed",
     "test:ui": "playwright test --ui",
+    "show-report": "playwright show-report",
     "build-css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
     "build-css-prod": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify"
   },

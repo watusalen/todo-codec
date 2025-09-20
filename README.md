@@ -103,6 +103,9 @@ npm test
 # Interface do Playwright
 npm run test:ui
 
+# Ver relatório detalhado (com vídeos e traces)
+npm run show-report
+
 # Testes específicos
 npm run test:basic       # Funcionalidades básicas
 npm run test:management  # Gerenciamento de tarefas
